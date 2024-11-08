@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06A87A0B-F46F-4C3C-A8C0-A876CAF6BDA5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>POLICLINIKA</RootNamespace>
+    <AssemblyName>POLICLINIKA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddEditScheduleDialog.xaml.cs">
+      <DependentUpon>AddEditScheduleDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditTestResultDialog.xaml.cs">
+      <DependentUpon>AddEditTestResultDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditUserDialog.xaml.cs">
+      <DependentUpon>AddEditUserDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentWindow.xaml.cs">
+      <DependentUpon>AppointmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditStatusDialog.xaml.cs">
+      <DependentUpon>EditStatusDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryDialog.xaml.cs">
+      <DependentUpon>HistoryDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryWindow.xaml.cs">
+      <DependentUpon>HistoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageAppointmentsWindow.xaml.cs">
+      <DependentUpon>ManageAppointmentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSchedulesWindow.xaml.cs">
+      <DependentUpon>ManageSchedulesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTestResultsWindow.xaml.cs">
+      <DependentUpon>ManageTestResultsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUsersWindow.xaml.cs">
+      <DependentUpon>ManageUsersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalCardWindow.xaml.cs">
+      <DependentUpon>MedicalCardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileWindow.xaml.cs">
+      <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RaspisanieWindow.xaml.cs">
+      <DependentUpon>RaspisanieWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResultsWindow.xaml.cs">
+      <DependentUpon>ResultsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs" />
+    <Compile Include="ScheludeWindow.xaml.cs">
+      <DependentUpon>ScheludeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestResult.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="ViewReportsWindow.xaml.cs">
+      <DependentUpon>ViewReportsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vrach_MedicalCardManagement.xaml.cs">
+      <DependentUpon>Vrach_MedicalCardManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vrach_PatientAppointmentsView.xaml.cs">
+      <DependentUpon>Vrach_PatientAppointmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vrach_TestResultsManagement.xaml.cs">
+      <DependentUpon>Vrach_TestResultsManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vrach_ViewSchedule.xaml.cs">
+      <DependentUpon>Vrach_ViewSchedule.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddEditScheduleDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditTestResultDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditUserDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppointmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditStatusDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GlavnayaAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GlavnayaKlient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GlavnayaVrach.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dannie.cs" />
+    <Compile Include="GlavnayaAdmin.xaml.cs">
+      <DependentUpon>GlavnayaAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlavnayaKlient.xaml.cs">
+      <DependentUpon>GlavnayaKlient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlavnayaVrach.xaml.cs">
+      <DependentUpon>GlavnayaVrach.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ManageAppointmentsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageSchedulesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageTestResultsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ManageUsersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicalCardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RaspisanieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ScheludeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewReportsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vrach_MedicalCardManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vrach_PatientAppointmentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vrach_TestResultsManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vrach_ViewSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

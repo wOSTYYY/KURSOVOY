@@ -1,0 +1,50 @@
+﻿<Window x:Class="POLICLINIKA.GlavnayaKlient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+        Title="Главная - Клиент" Height="539" Width="738"
+        Style="{StaticResource WindowBackground}" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+
+    <Grid>
+        <Rectangle Height="78" VerticalAlignment="Center" Style="{StaticResource GradientRectangle}" Margin="0,-1,0,431"/>
+        <TextBlock x:Name="WelcomeTextBlock" Text="Добро пожаловать, Клиент!" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Margin="0,20,0,0" FontSize="20" FontFamily="Comic Sans MS" Foreground="White" />
+
+        <Button x:Name="AppointmentButton" Content="Запись на приём" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="200" Height="50" 
+                Style="{StaticResource GradientButton}"
+                FontSize="16"
+                FontFamily="Comic Sans MS"
+                Click="AppointmentButton_Click" Margin="129,207,363,232">
+        </Button>
+
+        <Button x:Name="ScheduleButton" Content="Наши специалисты" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="215" Height="50" 
+                Style="{StaticResource GradientButton}"
+                FontSize="16"
+                FontFamily="Comic Sans MS"
+                Click="ScheduleButton_Click" Margin="394,207,83,232">
+        </Button>
+
+        <Image Source="images\lich.png" Margin="613,0,21,431" MouseDown="Image_MouseDown"/>
+
+        <Button x:Name="SpecialistsButton" Content="Просмотр расписания врачей" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="286" Height="51" 
+                FontSize="16"
+                FontFamily="Comic Sans MS"
+                Style="{StaticResource GradientButton}"
+                Click="SpecialistsButton_Click" Margin="219,362,187,76">
+        </Button>
+    </Grid>
+</Window>
+

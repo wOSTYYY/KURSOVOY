@@ -1,0 +1,67 @@
+﻿<Window x:Class="POLICLINIKA.RaspisanieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+       Title="Просмотр расписания врачей" Height="600" Width="1168" Style="{StaticResource WindowBackground}" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Style="{StaticResource GradientRectangle}" Margin="-20,-20,-20,0"></Rectangle>
+
+        <TextBlock Text="Просмотр расписания врачей" 
+                   FontSize="22" 
+                   FontFamily="Comic Sans MS"
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   HorizontalAlignment="Center" 
+                   Margin="0,10,0,20"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,50,20,50">
+                <TextBlock Text="Выберите врача:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <ComboBox x:Name="ComboBoxDoctors" FontSize="14" Width="300" SelectionChanged="ComboBoxDoctors_SelectionChanged" DisplayMemberPath="FullName"/>
+
+                <Border Background="LightGray" CornerRadius="10" Padding="15" Margin="0,20,0,0">
+                    <StackPanel>
+                        <TextBlock x:Name="DoctorName" Text="ФИО: -" FontSize="14" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <TextBlock x:Name="DoctorSpecialization" Text="Специализация: -" FontSize="14" Margin="0,0,0,5"/>
+                        <TextBlock x:Name="DoctorPhone" Text="Телефон: -" FontSize="14" Margin="0,0,0,5"/>
+                        <TextBlock x:Name="DoctorEmail" Text="Электронная почта: -" FontSize="14"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin=" 0 50 20 50">
+                <TextBlock Text="Расписание:" FontSize="16" FontWeight="Bold" Margin="15,0,0,10"/>
+                <ListView x:Name="ListViewSchedule" FontSize="14" Width="400">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date}" Width="150"/>
+                            <GridViewColumn Header="Начало работы" DisplayMemberBinding="{Binding StartTime}" Width="120"/>
+                            <GridViewColumn Header="Конец работы" DisplayMemberBinding="{Binding EndTime}" Width="120"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <Button x:Name="BackButton" Content="Назад" 
+                Width="150" Height="40" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Style="{StaticResource GradientButton}" 
+                FontFamily="Comic Sans MS" 
+                Click="BackButton_Click"/>
+
+        </Grid>
+    </Grid>
+</Window>

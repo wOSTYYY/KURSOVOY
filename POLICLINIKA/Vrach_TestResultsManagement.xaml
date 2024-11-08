@@ -1,0 +1,70 @@
+﻿<Window x:Class="POLICLINIKA.Vrach_TestResultsManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+        Style="{StaticResource WindowBackground}"
+        Title="Результаты анализов" Height="674.466" Width="950" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+
+    <Grid Margin="-1,0,1,0">
+        <Rectangle Style="{StaticResource GradientRectangle}" Margin="1,0,-1,573"></Rectangle>
+        <TextBlock Text="Управление результатами анализов" 
+                   FontSize="22" 
+                   Foreground="White"
+                   FontFamily="Comic Sans MS"
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="187,13,178,582" Width="427" TextAlignment="Center"/>
+
+        <Grid Margin="10 100 10 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0,0,20,60">
+                    <TextBlock Text="Выберите пациента:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ComboBox x:Name="ComboBoxPatients" FontSize="14" Width="200" SelectionChanged="ComboBoxPatients_SelectionChanged" DisplayMemberPath="FullName"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Результаты анализов:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                    <ListView x:Name="ListViewTestResults" FontSize="14" Width="550" Height="250">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding TestDate}" Width="150"/>
+                                <GridViewColumn Header="Результат" DisplayMemberBinding="{Binding Result}" Width="400"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <TextBlock Text="Добавить новый анализ:" FontSize="16" FontWeight="Bold" Margin="0,20,0,10"/>
+                    <TextBlock Text="Дата анализа:" FontSize="14"/>
+                    <DatePicker x:Name="DatePickerNewTestDate" Margin="0,5,0,10"/>
+                    <TextBlock Text="Результат:" FontSize="14"/>
+                    <TextBox x:Name="TextBoxNewTestResult" Height="60" TextWrapping="Wrap" Margin="0,5,0,10"/>
+                    
+                    <Button x:Name="SaveButton" Content="Сохранить результат" Style="{StaticResource GradientButton}" Width="150" Height="40" Click="SaveButton_Click" Margin="156,0,157,0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Button x:Name="BackButton" Content="Назад" 
+                Width="150" Height="40" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,682,18" 
+                Style="{StaticResource GradientButton}" 
+                FontFamily="Comic Sans MS" 
+                Click="BackButton_Click"/>
+    </Grid>
+</Window>

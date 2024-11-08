@@ -1,0 +1,86 @@
+﻿<Window x:Class="POLICLINIKA.ManageSchedulesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+        Title="Управление расписанием" 
+        Height="656.5" Width="862" 
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowBackground}" Icon="images/logo.png">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Rectangle Style="{StaticResource GradientRectangle}" Margin="-10,-10,-10,135"></Rectangle>
+
+        <TextBlock Text="Управление расписанием" 
+                   FontSize="24" 
+                   FontFamily="Comic Sans MS"
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="251,10,237,147" 
+                   Foreground="White" Width="346" TextAlignment="Center" />
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="112,96,107,63" Width="615">
+            <Button x:Name="AddScheduleButton" Content="Добавить расписание" 
+                    Width="170" Height="40" 
+                    Margin="10 0 0 0"
+                    Style="{StaticResource GradientButton}" 
+                    Click="AddScheduleButton_Click"/>
+            <Button x:Name="EditScheduleButton" Content="Редактировать" 
+                    Width="150" Height="40" 
+                    Margin="60 0 0 0"
+                    Style="{StaticResource GradientButton}" 
+                    Click="EditScheduleButton_Click"/>
+            <Button x:Name="DeleteScheduleButton" Content="Удалить" 
+                    Width="150" Height="40" 
+                    Style="{StaticResource GradientButton}" 
+                    Margin="60,0,0,0" 
+                    Click="DeleteScheduleButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridSchedule"
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False"
+                   FontFamily="Comic Sans MS"
+                  Margin="0,172,0,128" 
+                  FontSize="14" Grid.RowSpan="2" RenderTransformOrigin="0.499,0.446">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" FontFamily="Comic Sans MS" Binding="{Binding WorkingDate}" Width="*" />
+                <DataGridTextColumn Header="Начало" FontFamily="Comic Sans MS" Binding="{Binding StartTime}" Width="*" />
+                <DataGridTextColumn Header="Конец" FontFamily="Comic Sans MS" Binding="{Binding EndTime}" Width="*" />
+                <DataGridTextColumn Header="Врач" FontFamily="Comic Sans MS" Binding="{Binding DoctorName}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="251,293,211,56" Width="372" Height="57">
+
+            <Button x:Name="PreviousPageButton" Content="Назад" 
+                    Width="100" Height="30" 
+                    Style="{StaticResource GradientButton}" 
+                    Margin="20,7,0,7" 
+                    Click="PreviousPageButton_Click"/>
+            <TextBlock x:Name="PageNumberLabel" Text="Страница 1" 
+                       VerticalAlignment="Center" 
+                       Margin="10,0" FontSize="16"/>
+            <Button x:Name="NextPageButton" Content="Вперёд" 
+                    Width="100" Height="30" 
+                    Style="{StaticResource GradientButton}" 
+                    Click="NextPageButton_Click"/>
+        </StackPanel>
+        <Button x:Name="BackButton" Content="Выйти" 
+                Width="150" Height="40" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Style="{StaticResource GradientButton}" 
+                FontFamily="Comic Sans MS" 
+                Click="BackButton_Click" Grid.Row="1" Margin="0,0,0,10"/>
+    </Grid>
+</Window>

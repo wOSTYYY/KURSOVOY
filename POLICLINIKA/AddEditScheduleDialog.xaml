@@ -1,0 +1,78 @@
+﻿<Window x:Class="POLICLINIKA.AddEditScheduleDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+        Title="Добавить / Редактировать расписание"
+        Height="442.725" Width="774"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Style="{StaticResource WindowBackground}" Icon="images/logo.png">
+
+
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="222"/>
+            <RowDefinition Height="Auto" MinHeight="139"/>
+        </Grid.RowDefinitions>
+        <Rectangle Style="{StaticResource GradientRectangle}" Margin="0,0,0,7"></Rectangle>
+
+        <TextBlock Text="Добавить / Редактировать расписание"
+                   FontSize="22" FontWeight="Bold"
+                   FontFamily="Comic Sans MS"
+                   Foreground="White"
+                   HorizontalAlignment="Center"
+                   Margin="141,10,125,18" Width="478" TextAlignment="Center"/>
+
+        <Label Content="Врач:" Grid.Row="1"
+               FontSize="16" FontFamily="Comic Sans MS"
+               Margin="0,10,0,5"/>
+        <ComboBox x:Name="ComboBoxDoctors" Grid.Row="1"
+                  DisplayMemberPath="FullName"
+                  FontFamily="Comic Sans MS"
+                  Margin="202,17,202,0"/>
+
+        <Label Content="Дата рабочего дня:" Grid.Row="2"
+               FontSize="16" FontFamily="Comic Sans MS"
+               Margin="0,10,0,5"/>
+        <DatePicker x:Name="DatePickerWorkingDay" Grid.Row="2"
+                    FontFamily="Comic Sans MS"
+                    Margin="202,17,202,0"/>
+
+        <Label Content="Время начала:" Grid.Row="3"
+               FontSize="16" FontFamily="Comic Sans MS"
+               Margin="0,10,0,5"/>
+        <TextBox x:Name="TextBoxStartTime" Grid.Row="3"
+                 FontFamily="Comic Sans MS"
+                 Margin="202,16,202,1"
+                 />
+
+        <Label Content="Время окончания:" Grid.Row="4"
+               FontSize="16" FontFamily="Comic Sans MS"
+               Margin="0,10,0,163"/>
+        <TextBox x:Name="TextBoxEndTime" Grid.Row="4"
+                 FontFamily="Comic Sans MS"
+                 Margin="202,18,202,174"/>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Margin="222,80,202,102" RenderTransformOrigin="0.5,0.894" Width="280">
+            <Button x:Name="SaveButton" Content="Сохранить"
+                    Width="120" Height="40"
+                    Style="{StaticResource GradientButton}"
+                    FontFamily="Comic Sans MS"
+                    Click="SaveButton_Click" Margin="10,0"/>
+            <Button x:Name="CancelButton" Content="Отмена"
+                    Width="120" Height="40"
+                    Style="{StaticResource GradientButton}"
+                    FontFamily="Comic Sans MS"
+                    Click="CancelButton_Click" Margin="10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

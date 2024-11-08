@@ -1,0 +1,76 @@
+﻿<Window x:Class="POLICLINIKA.ScheduleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+        Title="Список врачей" Height="450" Width="830" Style="{StaticResource WindowBackground}" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+    <Window.Resources>
+        <Style x:Key="DoctorCardStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CornerRadius" Value="15" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFB0B0B0" Offset="0.0" />
+                        <GradientStop Color="#FFCC7A7A" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Наши специалисты" FontSize="24" FontFamily="Comic Sans MS"
+               HorizontalAlignment="Center" VerticalAlignment="Top" Margin="290,10,290,0" Grid.Row="0" Width="242"/>
+
+        <Button x:Name="BackButton" Content="Выйти" 
+                Width="100" Height="40" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,19,2" 
+                Style="{StaticResource GradientButton}" 
+                FontFamily="Comic Sans MS" 
+                Click="BackButton_Click"/>
+
+        <ListView Name="ListViewDoctors" Grid.Row="1" Margin="8,16,8,0"
+                  Foreground="#FF2E4861" FontSize="14" Background="Transparent">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource DoctorCardStyle}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding FIO}" FontWeight="Bold" FontSize="16" Foreground="White" TextWrapping="Wrap"/>
+                            <TextBlock Text="Специализация:" FontWeight="Bold" Foreground="Gray"/>
+                            <TextBlock Text="{Binding Specialization}" Margin="0,0,0,10" TextWrapping="Wrap" Foreground="White"/>
+                            <TextBlock Text="Телефон:" FontWeight="Bold" Foreground="Gray"/>
+                            <TextBlock Text="{Binding Phone}" Margin="0,0,0,10" TextWrapping="Wrap" Foreground="White"/>
+                            <TextBlock Text="Электронная почта:" FontWeight="Bold" Foreground="Gray"/>
+                            <TextBlock Text="{Binding Email}" Margin="0,0,0,10" TextWrapping="Wrap" Foreground="White"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Margin="0,10,0,10">
+            <Button x:Name="btnPrevious" Style="{StaticResource GradientButton}" Content="Назад" Width="130" Height="40" Click="btnPrevious_Click" Margin="5" FontFamily="Comic Sans MS"/>
+            <Label x:Name="lblPageNumber" Content="Страница 1" FontSize="16" FontFamily="Comic Sans MS" Margin="10" VerticalAlignment="Center"/>
+            <Button x:Name="btnNext" Style="{StaticResource GradientButton}" Content="Вперёд" Width="130" Height="40" Click="btnNext_Click" Margin="5" FontFamily="Comic Sans MS"/>
+        </StackPanel>
+    </Grid>
+</Window>

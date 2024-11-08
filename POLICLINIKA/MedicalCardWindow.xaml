@@ -1,0 +1,61 @@
+﻿<Window x:Class="POLICLINIKA.MedicalCardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"  
+        Title="Медицинская карта" Height="600" Width="800" 
+        Style="{StaticResource WindowBackground}" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Style="{StaticResource GradientRectangle}" Margin="-20,-20,-20,10"></Rectangle>
+
+        <TextBlock Text="Медицинская карта" 
+                   FontSize="22" 
+                   Foreground="White"
+                   FontWeight="Bold" 
+                   FontFamily="Comic Sans MS"
+                   HorizontalAlignment="Center" 
+                   Margin="226,2,258,28" Width="268" TextAlignment="Center"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="0,50,20,50">
+                <TextBlock Text="Список визитов:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <ListView x:Name="ListViewVisits" FontSize="14" Width="400" SelectionChanged="ListViewVisits_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Дата визита" DisplayMemberBinding="{Binding VisitDate}" Width="150"/>
+                            <GridViewColumn Header="Врач" DisplayMemberBinding="{Binding DoctorName}" Width="200"/>
+                            <GridViewColumn Header="Диагноз" DisplayMemberBinding="{Binding Diagnosis}" Width="250"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="0 50 0 50">
+                <TextBlock Text="Подробности визита:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBlock x:Name="VisitDetails" Text="Выберите визит для просмотра подробностей" 
+                           FontSize="14" TextWrapping="Wrap" Background="LightGray" Padding="10"/>
+            </StackPanel>
+            <Button x:Name="BackButton" Content="Назад" 
+                Width="150" Height="40" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,288,0" 
+                    FontWeight="Bold"
+                Style="{StaticResource GradientButton}" 
+                FontFamily="Comic Sans MS" 
+                Click="BackButton_Click" Grid.ColumnSpan="2"/>
+        </Grid>
+    </Grid>
+</Window>

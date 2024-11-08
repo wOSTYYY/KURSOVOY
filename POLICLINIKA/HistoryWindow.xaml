@@ -1,0 +1,68 @@
+﻿<Window x:Class="POLICLINIKA.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POLICLINIKA"
+        mc:Ignorable="d"
+        Style="{StaticResource WindowBackground}"
+        Title="Мои записи" Height="500" Width="900" WindowStartupLocation="CenterScreen" Icon="images/logo.png">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Style="{StaticResource GradientRectangle}" Margin="-20,-20,-20,10"></Rectangle>
+
+        <TextBlock Text="Мои записи" 
+                   FontSize="22" 
+                   FontWeight="Bold" 
+                   Foreground="White"
+                   FontFamily="Comic Sans MS"
+                   HorizontalAlignment="Center" 
+                   Margin="256,1,256,29"/>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Column="0" Margin="0,50,20,50">
+                <TextBlock Text="Активные записи:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <ListView x:Name="ListViewActiveAppointments" FontSize="14" SelectionChanged="ListViewActiveAppointments_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Дата записи" DisplayMemberBinding="{Binding AppointmentDate}" Width="150"/>
+                            <GridViewColumn Header="Время" DisplayMemberBinding="{Binding AppointmentTime}" Width="100"/>
+                            <GridViewColumn Header="Врач" DisplayMemberBinding="{Binding DoctorName}" Width="200"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="0 150 0 0">
+                <Button x:Name="DeleteButton" Content="Удалить запись" Width="150" Height="40" 
+                        FontWeight="Bold"
+                        Click="DeleteButton_Click" Margin="0,10,0,10" Style="{StaticResource GradientButton}"/>
+                <Button x:Name="ShowHistoryButton" Content="Просмотр истории" Width="150" Height="40" Style="{StaticResource GradientButton}"
+                        FontWeight="Bold"
+                        Click="ShowHistoryButton_Click"/>
+            </StackPanel>
+            <Button x:Name="BackButton" Content="Назад" 
+                Width="150" Height="40" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                Margin="0,0,10,0" 
+                FontWeight="Bold"
+                Style="{StaticResource GradientButton}" 
+                FontFamily="Comic Sans MS" 
+                Click="BackButton_Click"/>
+        </Grid>
+    </Grid>
+</Window>
